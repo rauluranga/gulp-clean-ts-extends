@@ -11,7 +11,7 @@ Works only with non-minified JavaScript!
 ```
 ## Usage
 
-```
+```javascript
 var ts = require('gulp-typescript');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
@@ -33,5 +33,6 @@ gulp.task('scripts', function() {
 });
 ```
 ## Tests
-
+```
   npm test
+```
