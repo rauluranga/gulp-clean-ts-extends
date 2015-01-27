@@ -1,6 +1,6 @@
 {
   "name": "gulp-clean-ts-extends",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "In compiled TypeScript files remove all __extends declarations except the first one",
   "main": "index.js",
   "dependencies": {
