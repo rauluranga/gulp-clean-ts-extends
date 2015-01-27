@@ -1,0 +1,37 @@
+{
+  "name": "gulp-clean-ts-extends",
+  "version": "0.1.0",
+  "description": "In compiled TypeScript files remove all __extends declarations except the first one",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-util": "^3.0.2",
+    "replacestream": "^2.0.0",
+    "through2": "^0.6.1"
+  },
+  "devDependencies": {
+    "event-stream": "^3.2.1",
+    "mocha": "^2.1.0",
+    "should": "^4.6.0"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rauluranga/gulp-clean-ts-extends.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "clean",
+    "TypeScript",
+    "extends"
+  ],
+  "author": "Raúl Uranga <ruranga@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rauluranga/gulp-clean-ts-extends/issues"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}
