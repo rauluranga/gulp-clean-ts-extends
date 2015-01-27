@@ -1,6 +1,8 @@
 gulp-clean-ts-extends
 =====================
 
+[grunt-clean-ts-extends](https://github.com/mihhail-lapushkin/grunt-clean-ts-extends) ported to gulp!.
+
 If you first compile all your TypeScript sources and then concatenate them into one file you might get quite a lot of __extends declarations. This plugin leaves the first one and removes all following.
 
 Works only with non-minified JavaScript!
@@ -36,3 +38,4 @@ gulp.task('scripts', function() {
 ```
   npm test
 ```
+
