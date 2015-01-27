@@ -14,6 +14,10 @@ module.exports = function () {
       '    d.prototype = new __();\n' +
       '};';
 
+    var counts = 0;
+    var doReplace = function(match) {
+      return ++counts > 1 ? "\n\n\n\n\n" : match;  //dumb fix to support sourcemaps
+    }
 
     if (file.isNull()) {
       cb(null, file);
@@ -21,27 +25,13 @@ module.exports = function () {
     }
 
     if (file.isStream()) {
-      var counts = 0;
-      file.contents = file.contents.pipe(rs(extendsCodeSnippet, 
-        function(match) {
-          return ++counts > 1 ? "" : match;
-        }
-      ));
+      file.contents = file.contents.pipe(rs(extendsCodeSnippet, doReplace));
       cb(null, file);
       return;
     }
 
     try {
-
-      var fileContents = file.contents.toString();
-
-      var firstOccurrence = fileContents.indexOf(extendsCodeSnippet) + 1;
-      var i;
-      
-      while ((i = fileContents.indexOf(extendsCodeSnippet, firstOccurrence)) >= 0) {
-        fileContents = fileContents.substring(0, i) + fileContents.substring(i + extendsCodeSnippet.length, fileContents.length);
-      }
-      file.contents = new Buffer(fileContents);
+      file.contents = new Buffer(String(file.contents).replace(/var __extends =(.+\n)*};/g, doReplace));
       this.push(file);
 
     } catch (err) {
